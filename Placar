@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+using namespace std;
+
+
+int main()
+{
+
+	int numChutes=0, numGerado=0, placar, repetir=1, recorde;
+
+	unsigned seed = time(0);
+	srand(seed);
+
+	while(repetir!=0) {
+	    
+	    numGerado = rand()%101+1;
+        placar=1;
+		numChutes=102;
+		while(numChutes!=numGerado) {
+
+			cout << "\nInsira um numero de 1 a 100: ";
+			cin >> numChutes;
+
+			if(numChutes!=numGerado) {
+				cout << "Nao foi dessa vez!\n";
+				if(numChutes>numGerado) {
+					cout << "O numero e menor!\n";
+					placar++;
+				} else {
+					cout << "O numero e maior!\n";
+					placar++;
+				}
+			}
+		}
+
+        if(placar<recorde){
+           recorde = placar;
+        }
+        
+        cout << "Meus parabens, voce acertou! Suas tentativas: " << placar << endl;
+        cout <<"O recorde é: " << recorde << endl;
+
+		repetir=2;
+		while(repetir!=0 && repetir!=1) {
+			cout << "\nDeseja jogar novamente?";
+			cout << "\n[1 - Sim]\n[0 - Nao]: ";
+			cin >> repetir;
+			
+			if(repetir==0 || repetir==1){
+			    break;
+			}
+			
+		}
+
+	}
+
+	return 0;
+}

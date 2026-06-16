@@ -1,0 +1,159 @@
+//===========================================
+
+
+#include <iostream>
+using namespace std;
+
+
+void menu();
+float soma(float num1, float num2);
+float subt(float num1, float num2);
+float mult(float num1, float num2);
+float divi(float num1, float num2);
+
+int main()
+{
+    menu();
+    return 0;
+}
+
+
+void menu()
+{
+
+    int opcao;
+    
+    do{
+  
+    float var1, var2, resultado;
+
+    cout << "CALCULADORA.\n";
+    cout << "Insira um número referente a operação desejada. [1-4]\n";
+    cout << "1. Adição.         [+].\n";
+    cout << "2. Subtração.      [-].\n";
+    cout << "3. Multiplicação.  [x].\n";
+    cout << "4. Divisão.        [/].\n";
+    cout << "0. Sair.\n";
+    cin >> opcao;
+    
+    if(opcao == 0){
+        cout << "Encerrando programa.\n";
+        break;
+    }
+    else if(opcao < 0 || opcao > 4){
+        cout << "Número invalido. Reiniciando programa." << endl;
+        continue;
+    }
+    
+    cout << "Insira o prímeiro número: ";
+    cin >> var1;
+    cout << "Insira o segundo número: ";
+    cin >> var2;
+
+
+    switch(opcao){
+        
+        case 1:
+        resultado = soma(var1, var2);
+        cout << "O resultado da soma [+] é: " << resultado << endl << endl;
+        break;
+        
+        case 2:
+        resultado = subt(var1, var2);
+        cout << "O resultado da subtração [-] é: " << resultado << endl << endl;
+        break;
+        
+        case 3:
+        resultado = mult(var1, var2);
+        cout << "O resultado da multiplicação [x] é: " << resultado << endl << endl;
+        break;
+        
+        case 4:
+        resultado = divi(var1, var2);
+        if(resultado==0){
+        cout << "Não é possível dividir por zero. Insira novamente.\n";
+        }
+        else{
+        cout << "O resultado da divisão [/] é: " << resultado << endl << endl;
+        }
+        break;
+    }
+
+}while(!opcao==0);
+    
+}
+
+float soma(float num1, float num2)
+{
+    return num1+num2;
+}
+
+float subt(float num1, float num2)
+{
+    return num1-num2;
+}
+
+float mult(float num1, float num2)
+{
+    return num1*num2;
+}
+
+float divi(float num1, float num2)
+{
+    if(num2!=0){
+        return num1/num2;
+    }
+    else{
+        return 0;
+    }
+}
+
+=============================================
+
+
+//===========================================
+
+
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+float pi=M_PI;
+
+float perimetro(float raio)
+{
+    return 2*pi*raio;
+}
+
+float area(float raio)
+{
+    return pi*raio*raio;
+}
+
+
+int main()
+{
+    float raio;
+    int casas;
+    
+
+    cout << "Digite o raio do círculo: ";
+    cin >> raio;
+    
+    cout << "Digite quantas casas decimais deseja: ";
+    cin >> casas;
+    
+     cout << fixed << setprecision(casas);
+    
+    cout << "Perímetro: " << perimetro(raio) << endl;
+    cout << "Área: " << area(raio) << endl;
+    
+
+    
+    return 0;
+}
+
+
+
+

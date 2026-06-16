@@ -1,0 +1,198 @@
+================================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int aux, num1, lim;
+    
+    cout << "Digite um número inteiro: ";
+    cin >> num1;
+    cout << "Digite um número limite para essa tabuada: ";
+    cin >> lim;
+    
+    for(aux=1; aux <= lim; aux++){
+        cout << "A conta de: " << num1 << " x " << aux << " = " << num1*aux << endl;
+    }
+
+    return 0;
+}
+
+
+================================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int aux=1, num1, lim;
+    
+    cout << "Digite um número inteiro: ";
+    cin >> num1;
+    cout << "Digite um número limite para essa tabuada: ";
+    cin >> lim;
+    
+    while(aux <= lim){
+        cout << "A conta de: " << num1 << " x " << aux << " = " << num1*aux << endl;
+        aux++;
+    }
+
+    return 0;
+}
+
+
+================================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int aux=1, num1, lim;
+    
+    cout << "Digite um número inteiro: ";
+    cin >> num1;
+    cout << "Digite um número limite para essa tabuada: ";
+    cin >> lim;
+    
+     
+    
+    do{
+       aux++;
+       cout << "A conta de: " << num1 << " x " << aux << " = " << num1*aux << endl;
+    }
+    
+    while(aux<lim);
+
+    return 0;
+}
+
+
+================================================================
+
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+
+    int n, k, i, num=1;
+    
+    cout << "Digite um número N do tabuleiro [N x N]: ";
+    cin >> n;
+    
+        for(i=1; i<=n; i++){
+            
+            for(k=1; k<=n; k++){
+                cout << setw(4) << num;
+                num++;
+            }
+            cout << endl;
+        }
+    
+
+
+    return 0;
+}
+
+
+================================================================
+
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+
+    int num;
+    
+    while(true){
+        cout << "Digite um número: ";
+        cin >> num;
+        
+
+          if(num==0){
+              break;
+          }
+          
+        for(int i=1; i<=10; i++){
+          cout << i << " ";
+        }
+        
+        cout << num*num << endl;
+    }
+    
+    cout << "O laço foi encerrado!";
+
+    
+
+    return 0;
+}
+
+
+================================================================
+
+
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int main()
+{
+
+    int num;
+    
+    while(true){
+        cout << "Digite um número: ";
+        cin >> num;
+        
+        for(int i=1; i<=10; i++){
+          if(i%4==0){
+            continue;
+          }
+          
+          cout << i << " ";
+        }
+        
+        cout << endl;
+    }
+    
+    cout << "O laço foi encerrado!";
+
+    
+
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

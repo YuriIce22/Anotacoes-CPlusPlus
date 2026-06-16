@@ -1,0 +1,196 @@
+===========================================================
+
+
+#include <iostream>
+using namespace std;
+
+float sum(float a, float b, float c = 0.0, float d = 0.0){
+    return a+b+c+d;
+}
+
+
+int main()
+{
+    cout << sum(1,2) << endl;
+    cout << sum(1,2,3) << endl;
+    cout << sum(1,2,3,4) << endl;
+    
+    return 0;
+}
+
+
+=============================================================
+
+
+#include <iostream>
+using namespace std;
+
+void teste(){
+    int myVar = 1;
+    
+    cout << myVar << endl;
+    
+    myVar++;
+}
+
+
+int main()
+{
+    teste();
+    teste();
+
+    
+    return 0;
+}
+
+
+=============================================================
+
+
+#include <iostream>
+using namespace std;
+
+const float pi = 3.14159;
+
+float perimeter(float raio){
+    return 2*pi*raio;
+}
+
+float area(float raio){
+    return pi*raio*raio;
+}
+
+
+
+int main()
+{
+    
+    float raio;
+    
+    cout << "Digite o raio: ";
+    cin >> raio;
+    
+    cout << "Perímetro: " << perimeter(raio) << endl;
+    cout << "Área: " << area(raio) << endl;
+    
+    
+    return 0;
+}
+
+
+=============================================================
+
+
+#include <iostream>
+using namespace std;
+
+
+void square(int &);
+
+int main()
+{
+
+    int number = 6;
+    
+    cout << "Antes da função: " << number << endl;
+    square(number);
+    cout << "Depois da função: " << number << endl;
+    
+    return 0;
+}
+
+void square(int &num){
+    num = num*num;
+    cout << "Durante a função: " << num << endl;
+}
+
+
+=============================================================
+
+
+#include <iostream>
+using namespace std;
+
+
+void recursiva(int counter){
+    if(counter > 0){
+        cout << "Função recursiva!\n";
+        recursiva(counter-1);
+    }
+
+}
+
+int main()
+{
+
+    recursiva(5);
+    return 0;
+}
+
+
+=============================================================
+
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+
+int main()
+{
+
+    unsigned seed = time(0);
+    srand(seed);
+
+    for(int i=0; i<6; i++){
+        cout << rand()%20 << endl;
+    }
+    
+    return 0;
+}
+
+
+===============================================================
+
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+
+int main()
+{
+
+    unsigned seed = time(0);
+    srand(seed);
+
+    for(int i=0; i<20; i++){
+        cout << (rand()%20)+1 << endl;
+    }
+    
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

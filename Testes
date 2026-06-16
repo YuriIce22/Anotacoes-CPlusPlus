@@ -1,0 +1,418 @@
+=========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int senhaU, senha=1234;
+    
+    cout << "Digite sua senha: ";
+    cin >> senhaU;
+    
+    if (senhaU != senha){
+        cout << "Senha Incorreta.";
+    }
+    
+    else{
+        cout << "Login efetuado com sucesso.";
+    }
+
+    return 0;
+}
+
+
+=========================================================
+
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    float salario, imposto;
+    
+    cout << "Digite seu salÃ¡rio: R$";
+    cin >> salario;
+    
+    if (salario > 3000){
+        imposto = (salario/100)*20;
+        cout << "Seu imposto Ã© de 20%. O valor a ser pago com os impostos Ã©: R$" << imposto;
+    }
+    
+    else if (salario <= 0){
+        cout << "Digite um nÃºmero valido!";
+    }
+    
+    else{
+        imposto = (salario/100)*20;
+        cout << "Seu imposto Ã© de 15%. O valor a ser pago com os impostos Ã©: R$" << imposto;
+    }
+
+    return 0;
+}
+
+========================================================= //Variedade 1
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int idade, doenÃ§a;
+    
+    cout << "Qual a sua idade?: ";
+    cin >> idade;
+    
+    if (idade >= 18){
+        cout << "VocÃª tem alguma restriÃ§Ã£o pra doar sangue?" << endl; 
+        cout << "[1 - Sim] [2 - NÃ£o]" << endl;
+        cin >> doenÃ§a;
+        
+        if (doenÃ§a == 1){
+            cout << "VocÃª nÃ£o pode doar sangue ao ter restriÃ§Ãµes!";
+        }
+        
+        else{
+            cout << "Muito bem! VocÃª estÃ¡ liberado para doar sangue!";
+        }
+    }
+    
+    else{
+        cout << "VocÃª nÃ£o pode doar sangue! Idade mÃ­nima de 18 anos, desde que nÃ£o possua restriÃ§Ãµes.";
+    }
+
+    return 0;
+}
+
+
+========================================================= //Variedade 2
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int idade, doenÃ§a;
+    
+    cout << "Qual a sua idade?: ";
+    cin >> idade;
+    
+    cout << "VocÃª tem alguma restriÃ§Ã£o pra doar sangue?" << endl; 
+    cout << "[1 - Sim] [2 - NÃ£o]" << endl;
+    cin >> doenÃ§a;
+        
+    
+    if (idade >= 18){
+        if (doenÃ§a == 2){
+            cout << "Muito bem! VocÃª estÃ¡ liberado para doar sangue!";
+        }
+        
+        else{
+            cout << "VocÃª nÃ£o pode doar sangue! Idade mÃ­nima de 18 anos, desde que nÃ£o possua restriÃ§Ãµes.";
+        }
+    }
+    return 0;
+}
+
+
+========================================================= //Variedade 3
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int idade, doenÃ§a;
+    
+    cout << "Qual a sua idade?: ";
+    cin >> idade;
+    
+    cout << "VocÃª tem algua restriÃ§Ã£o pra doar sangue?" << endl; 
+    cout << "[1 - Sim] [2 - NÃ£o]" << endl;
+    cin >> doenÃ§a;
+        
+    
+    if (idade >= 18){
+        if (doenÃ§a == 2){
+            cout << "Muito bem! VocÃª estÃ¡ liberado para doar sangue!";
+        }
+        
+        else{
+            cout << "VocÃª nÃ£o pode doar sangue ao ter restriÃ§Ãµes!";
+        }
+    }
+    
+    else{
+        cout << "VocÃª nÃ£o pode doar sangue! Idade mÃ­nima de 18 anos, desde que nÃ£o possua restriÃ§Ãµes.";
+    }
+
+    return 0;
+}
+
+
+=========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    float nota;
+    
+    cout << "Digite sua nota (0 a 100): ";
+    cin >> nota;
+    
+    if(nota >= 95){
+        cout << "Nota A+!" << endl;
+    }
+    else if(nota >= 90){
+        cout << "Nota A!" << endl;
+    }
+    else if(nota >= 85){
+        cout << "Nota B+!" << endl;
+    }
+    else if(nota >= 80){
+        cout << "Nota B!" << endl;
+    }
+    else if(nota >= 75){
+        cout << "Nota C+!" << endl;
+    }
+    else if(nota >= 70){
+        cout << "Nota C!" << endl;
+    }
+    else if(nota >= 65){
+        cout << "Nota D+!" << endl;
+    }
+    else if(nota >= 60){
+        cout << "Nota D!" << endl;
+    }
+    else {
+        cout << "Reprovado!" << endl;
+    }
+
+    return 0;
+}
+
+
+=========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int idade;
+    
+    cout << "Digite sua idade: ";
+    cin >> idade;
+    
+    if (idade >= 18 && idade <= 65){
+        cout << "Voto obrigatório!";
+    }
+    
+    else if (idade <= 16 && idade >= 100){
+        cout << "Você não tem idade para votar ou a idade inserida é invalida!";
+    }
+    
+    else{
+        cout << "Voto facultativo!";
+    }
+    
+    return 0;
+}
+
+
+=========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    float velo;
+    
+    cout << "Digite a velocidade do veículo: ";
+    cin >> velo;
+    
+    if(velo > 120 || velo < 40){
+        cout << "Você será multado!";
+    }
+    
+    else{
+        cout << "Tudo certo!";
+    }
+    
+    return 0;
+}
+
+
+=========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int opcao;
+    
+    cout << "1. Saque\n";
+    cout << "2. Extrato\n";
+    cout << "3. Transferência\n";
+    cout << "4. Depósito\n";
+    cout << "5. PIX\n";
+    cout << "Digite uma opção [Número de 1 a 5]: ";
+    cin >> opcao;
+    
+    switch(opcao){
+        case 1:
+            cout << "Opção selecionada: Saque\n";
+            break;
+        case 2:
+            cout << "Opção selecionada: Extrato\n";
+            break;
+        case 3:
+            cout << "Opção selecionada: Transferência\n";
+            break;
+        case 4:
+            cout << "Opção selecionada: Depósito\n";
+            break;
+        case 5:
+            cout << "Opção selecionada: PIX\n";
+            break;
+        default:
+            cout << "Opção inválida\n";
+            break;
+    }
+  
+    
+    return 0;
+}
+
+
+=========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    char letra;
+    
+    cout << "Digite uma letra: ";
+    cin >> letra;
+    
+    switch(letra){
+        case 'a':
+        case 'A':
+            cout << "Você digitou A\n";
+            break;
+        case 'b':
+        case 'B':
+            cout << "Você digitou B\n";
+            break;
+        case 'c':
+        case 'C':
+            cout << "Você digitou C\n";
+            break;
+        case 'd':
+        case 'D':
+            cout << "Você digitou D\n";
+            break;
+        case 'e':
+        case 'E':
+            cout << "Você digitou E\n";
+            break;
+        default:
+            cout << "Letra inválida\n";
+            break;
+    }
+  
+    
+    return 0;
+}
+
+
+=========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+	float num1, num2, pos;
+	int inver1, inver2, extra;
+
+    cout << "Digite um número: ";
+    cin >> num1;
+    cout << "Digite outro número: ";
+    cin >> num2;
+    
+    if (num1 == num2){
+        cout << "Os números são iguais."  << endl << endl;
+    }
+    else if (num1 < num2){
+        cout << "O segundo número é maior que o primeiro."  << endl << endl;
+    }
+    else{
+        cout << "O primeiro número é maior que o segundo." << endl << endl;
+    }
+    
+    cout << "Novamente, digite um número: ";
+    cin >> pos;
+    
+    if (pos > 0){
+        cout << "O número é posítivo.";
+    }
+    else{
+        cout << "O número é negativo." << endl << endl;
+    }
+    
+    cout << "Digite um número inteiro: ";
+    cin >> num1;
+    cout << "Digite outro número inteiro: ";
+    cin >> num2;   
+    
+    extra = inver1;
+    inver1 = inver2;
+    inver2 = extra;
+    
+    cout << "Esse é o ultímo numero: " << num2 << endl;
+    cout << "Esse é o primeiro número: " << num1;
+
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,124 @@
+=============================================
+
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+   float raio, raio2, sum1, sum2, sum3, horas, minutos, minutos2, segundos;
+   
+   cout << "Insira o raio de um círculo: ";
+   cin >> raio;
+   sum1 = 2 * M_PI * raio;
+   sum2 = M_PI * (raio * raio);
+   cout << "O perímetro do circulo é: " << sum1 << ". E a área do circulo é: " << sum2 << endl << endl;
+   
+    cout << "Insira o raio de uma esfera: ";
+    cin >> raio2;
+    sum3 = 4 * M_PI * (raio2 * raio2 * raio2) / 3;
+    cout << "O volume da esfera é: " << sum3 << endl << endl;
+    
+    cout << "Insira as horas: ";
+    cin >> horas;
+    cout << "Insira os minutos: ";
+    cin >> minutos;
+    minutos2 = (horas * 60) + minutos;
+    segundos = minutos2 * 60;
+    cout << "As horas convertidas em minutos + os minutos são de: " << minutos2 << ". Convertidas para segundos são: " << segundos;
+    
+   return 0;
+}
+
+
+=============================================
+
+
+   float cel, fare, ano, idade, nascimento, valor, porcento;
+   
+   cout << "Insira a temperatura em Celsius (ºC): ";
+   cin >> cel;
+   fare = (cel * 9/5) + 32;
+   cout << "A temperatura de Celsius convertido para Farenheit é: " << fare << endl << endl;
+   
+    cout << "Insira o ano atual: ";
+    cin >> ano;
+    cout << "Insira sua idade atual: ";
+    cin >> idade;
+    nascimento = ano - idade;
+    cout << "Você nasceu em: " << nascimento << endl << endl;
+    
+    cout << "Insira um valor para calcular 12%: ";
+    cin >> valor;
+    porcento = (valor / 100) * 12;
+     cout << "12% do valor é: " << porcento << endl << endl;
+   
+   return 0;
+
+
+=============================================
+
+
+   float valor, valor2, porcento, salario, imposto, sum1, liquido;
+    
+    cout << "Insira um valor de porcentagem (%): ";
+    cin >> valor;
+    cout << "Insira um valor: ";
+    cin >> valor2;
+    porcento = (valor2 / 100) * valor;
+    cout << valor << "% de " << valor2 << " é: " << porcento << endl << endl;
+     
+    cout << "Insira o valor do seu salário. R$";
+    cin >> salario;
+    imposto = (salario / 100) * 27.5;
+    liquido = salario - imposto;
+    cout << "O seu salário é de R$" << salario << ". Seu imposto é de R$" << imposto << ". O valor líquido é de R$" << liquido << endl << endl;
+   
+   return 0;
+
+
+=============================================
+
+
+#include <iostream>
+#include <cmath>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+   float nota1, nota2, nota3, nota4, nota5, media, mediaP;
+    
+    cout << "Insira a nota de Matemática: ";
+    cin >> nota1;
+    cout << "Insira a nota de Física: ";
+    cin >> nota2;
+    cout << "Insira a nota de Química: ";
+    cin >> nota3;
+    cout << "Insira a nota de Português: ";
+    cin >> nota4;
+    cout << "Insira a nota de Inglês: ";
+    cin >> nota5;
+
+    media = (nota1 + nota2 + nota3 + nota4 + nota5) / 5;
+    mediaP = ((nota1 * 3) + (nota2 * 2.5) + (nota3 * 2.5) + (nota4 * 1.0) + (nota5 * 1.0)) / 10;
+    cout << "A média das notas é: " << media << endl;
+    cout << "A média ponderada das notas é: " << mediaP << endl;
+    
+    
+    
+   
+   return 0;
+}
+
+
+
+
+
+
+
+
+

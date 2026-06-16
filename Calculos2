@@ -1,0 +1,240 @@
+=================================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    
+    int aux=0; 
+    float nota, soma=0;
+    
+    while(true){
+        
+        cout << "Insira uma nota: ";
+        cin >> nota;
+     
+        if(nota > 10){
+            cout << "Notas acima de 10 são invalidas." << endl;
+            continue;
+        }
+        
+        if(nota < 0){
+            cout << "Nota negativa. Encerrando cálculos e exibindo a média." << endl;
+            break;
+        }
+        
+        soma += nota;
+        aux++;   
+    }
+    
+    cout << "As médias das notas são: " << soma/aux;
+    
+    
+    
+    return 0;
+}
+
+
+=================================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    
+    int num, num1, aux=0; 
+    
+    cout << "Insira um número: ";
+    cin >> num;
+    cout << "Insira outro número: ";
+    cin >> num1;
+    
+    
+        for(aux=0; num<=num1; num++){
+            cout << " " << num;
+        }
+    
+    return 0;
+}
+
+
+=================================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int aux=0;
+    float nota, soma=0;
+    
+    while(true){
+        
+        cout << "Insira uma nota: ";
+        cin >> nota;
+            
+        
+        if(nota < 0){
+            cout << "Nota inválida." << endl;
+            continue;
+        }
+        
+        if(nota > 10){
+            cout << "Nota inválida. Encerrando o programa." << endl;
+            break;
+        }
+        
+        aux += nota;
+
+    }
+    
+    cout << "As notas somadas são: " << aux << endl;
+    
+    return 0;
+}
+
+
+=================================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    for(int num=1; num<=20; num++)
+    cout << num << " " << endl;
+    
+    return 0;
+}
+
+
+=================================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    float aux=0, n1;
+
+    for (int num=1; num<=5; num++){
+        cout << "Digite um número: ";
+        cin >> n1;
+    
+    if(n1 > aux){
+        aux = n1;
+    }
+}
+
+        cout << "O maior é: " << aux;
+    
+ 
+    return 0;
+}
+
+
+=================================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    float aux=0, n1, n2=0;
+
+    for (int num=1; num<=5; num++){
+        cout << "Digite um número: ";
+        cin >> n1;
+        
+        aux += n1;
+        n2++;
+}
+
+        cout << "O Soma dos valores é: " << aux << " e a média dos números é: " << aux/n2;
+    
+ 
+    return 0;
+}
+
+
+=================================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int qtd=0;
+    float aux=0, notas;
+
+    while(true){
+        
+        cout << "Digite as notas: ";
+        cin >> notas;
+
+        if(notas < 0){
+            cout << "Nota inválida." << endl;
+            continue;
+        }
+        
+        if(notas > 10){
+            cout << "Nota inválida. Encerrando o programa." << endl;
+            break;
+        }   
+    
+        qtd++;
+        aux += notas;
+    }
+    
+    cout << "A média aritmética das notas é: " << aux/qtd;
+
+ 
+    return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,280 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+
+	//Variaveis declaradas
+	int line = 0, coln = 0, line_rand, coln_rand, navios = 0, qtd_navios = 0, qtd_bombas = 0;;
+	int jogatina = 1, jogada_y = 0, jogada_x = 0, placar = 0, bombas = 0;
+
+	//While pra repetir todo o jogo
+	int menu = 1;
+	while(menu!=0) {
+
+		//While garantir que o tamanho do tabuleiro seja valido
+		int menu_line_coln = 1;
+		while(menu_line_coln!=0) {
+
+			std::cout << "Insira a quantidade de linhas que o tabuleiro tem: ";
+			std::cin >> line;
+			std::cout << "Insira a quantidade de colunas que o tabuleiro tem: ";
+			std::cin >> coln;
+
+			if(line>=4 && coln >=4) {
+				menu_line_coln = 0;
+			}
+
+			system("clear");
+			std::cout << "O tamanho minimo pro tabuleiro e 4x4!\n";
+		}
+
+		//Matriz do tabuleiro e matriz do tabuleiro para o usuario
+		std::string tabuleiro[line][coln];
+		std::string tabuleiroUser[line][coln];
+
+		//Calculo para decidir a quantidade de navios e bombas
+		int numNavios = 2 * coln - 2;
+		int numBombas = numNavios/2;
+
+		//Gerador de numeros aleatorios
+		srand(time(0));
+		system("clear");
+
+		//Linha de cima do tabuleiro
+		for(int i=0; i<line; i++) {
+			std::cout << "\t" << i;
+		}
+		std::cout << "   " << std::endl;
+		for(int i=0; i<line*9; i++) {
+			std::cout << "_";
+		}
+		std::cout << "" << std::endl;
+		std::cout << "" << std::endl;
+
+		//For para preencher todo o tabuleiro com " -" e exibir
+		for (int i = 0; i < line; i++) {
+			for (int j = 0; j < coln; j++) {
+				tabuleiro[i][j] = "\t-";
+				tabuleiroUser[i][j] = "\t-";
+				std::cout << tabuleiroUser[i][j];
+			}
+			std::cout << "| " << i;
+			std::cout << "" << std::endl;
+			std::cout << std::endl;
+		}
+
+		//While para definir lugares aleatorios para colocar os navios
+		navios=0;
+		while (navios < numNavios) {
+			line_rand = rand() % line;
+			coln_rand = rand() % coln;
+			if (tabuleiro[line_rand][coln_rand] == "\t-") {
+				tabuleiro[line_rand][coln_rand] = "\tN";
+				navios++;
+			}
+		}
+
+		//While para definir lugares aleatorios para colocar as bombas
+		bombas=0;
+		while(bombas < numBombas) {
+			line_rand = rand() % line;
+			coln_rand = rand() % coln;
+			if(tabuleiro[line_rand][coln_rand] == "\t-") {
+				tabuleiro[line_rand][coln_rand] = "\tB";
+				bombas++;
+			}
+		}
+
+		//While para a jogatina/gameplay
+		while (jogatina!=0) {
+
+			//While para garantir que as jogadas no tabuleiro sejam validas
+			int menu_jogada_valida = 1;
+			while(menu_jogada_valida!=0) {
+
+				std::cout << "Coloque as coordenadas." << std::endl;
+				std::cout << "Insira X (Colunas): ";
+				std::cin >> jogada_x;
+				std::cout << "Insira Y (Linhas): ";
+				std::cin >> jogada_y;
+
+				if(jogada_x >= 0 && jogada_x < line && jogada_y >=0 && jogada_y <coln) {
+					menu_jogada_valida = 0;
+				}
+
+				//Limpeza do console
+				system("clear");
+
+				std::cout << "Insira uma coordenada valida!\n";
+				for (int i = 0; i < line; i++) {
+					for (int j = 0; j < coln; j++) {
+						std::cout << tabuleiroUser[i][j];
+					}
+					std::cout << "| " << i;
+					std::cout << std::endl;
+				}
+			}
+
+			system("clear");
+
+			//If para nao repetir a pontuacao apos acertar o mesmo navio
+			if(tabuleiroUser[jogada_y][jogada_x]== "\tN") {
+				placar--;
+				numNavios++;
+			}
+
+			//If para calcular o placar, exibir os navios e mostrar quantos barcos faltam
+			if (tabuleiro[jogada_y][jogada_x] == "\tN") {
+				std::cout << " \a ";
+				tabuleiroUser[jogada_y][jogada_x] = "\tN";
+				placar++;
+				numNavios--;
+			}
+
+			
+			qtd_navios = 0;
+			qtd_bombas = 0;
+
+			//If para calcular todas as posicoes e quantos navios/bombas
+			//tem em volta da posicao do jogador
+			if (tabuleiro[jogada_y][jogada_x] == "\t-" || tabuleiro[jogada_y][jogada_x] == "\tN") {
+				for (int i = jogada_y -1; i <= jogada_y + 1; i++) {
+					for (int j = jogada_x - 1; j <= jogada_x + 1; j++) {
+						if(i >= 0 && i < line && j >=0 && j <coln) {
+							if (tabuleiro[i][j] == "\tN") {
+								qtd_navios++;
+							}
+						}
+					}
+				}
+
+			
+			}
+			
+				if (tabuleiro[jogada_y][jogada_x] == "\t-" || tabuleiro[jogada_y][jogada_x] == "\tN") {
+				for (int q = jogada_y -1; q <= jogada_y + 1; q++) {
+					for (int w = jogada_x - 1; w <= jogada_x + 1; w++) {
+						if(q >= 0 && q < line && w >=0 && w <coln) {
+							if (tabuleiro[q][w] == "\tB") {
+								qtd_bombas++;
+							}
+						}
+					}
+				}
+}
+            //Placar 
+            std::cout << "\nVoce acertou " << placar << " navios!" << std::endl;
+			std::cout << "Tem " << numNavios << " navios e " << bombas << " bombas no total!" << std::endl;
+			
+			//Condicao pra nao repetir o mesmo navio em volta
+			if (tabuleiro[jogada_y][jogada_x] == "\tN"){
+			std::cout << "Tem " << qtd_navios-1 << " navios em volta." << std::endl;
+			}else{
+			    std::cout << "Tem " << qtd_navios << " navios em volta." << std::endl;
+			}
+			std::cout << "Tem " << qtd_bombas << " bombas em volta.\n" << std::endl;
+			
+            //if para calcular acerto em bomba
+			if(tabuleiro[jogada_y][jogada_x] == "\tB") {
+				tabuleiroUser[jogada_y][jogada_x] = "\tB";
+				placar = 0;
+				jogatina = 0;
+				system("clear");
+				std::cout << "Voce perdeu! Acertou em uma bomba!\n";
+				break;
+			}
+
+			//Conversao da quantidade de navios para string
+			std::string qtd_navios_string = "\t" + std::to_string(qtd_navios);
+
+
+			//If para exibir os numeros de quantos barcos tem em volta
+			//no tabuleiro para o usuario
+			if (tabuleiro[jogada_y][jogada_x] == "\t-") {
+				tabuleiroUser[jogada_y][jogada_x] = qtd_navios_string;
+			}
+
+
+			//Linha de cima do tabuleiro
+			for(int i=0; i<line; i++) {
+				std::cout << "\t" << i;
+			}
+			std::cout << "   " << std::endl;
+			for(int i=0; i<line*9; i++) {
+				std::cout << "_";
+			}
+			std::cout << "" << std::endl;
+			std::cout << "" << std::endl;
+
+			//For para mostrar todo o tabuleiro ao usuario
+			for (int i = 0; i < line; i++) {
+				for (int j = 0; j < coln; j++) {
+					std::cout << tabuleiroUser[i][j];
+				}
+				std::cout << "| " << i;
+				std::cout << "" << std::endl;
+				std::cout << std::endl;
+			}
+			
+
+			//If para encerrar o jogo quando nao tiver mais barcos
+			if(numNavios==0) {
+				jogatina=0;
+				system("clear");
+				std::cout << "Voce ganhou! Acertou todos os navios!\n";
+				break;
+			}
+		}
+
+
+
+		//While para o menu de repetir o jogo
+		int retorno = 1;
+		while(retorno!=0) {
+
+
+			//Linha de cima do tabuleiro
+			for(int i=0; i<line; i++) {
+				std::cout << "\t" << i;
+			}
+			std::cout << "   " << std::endl;
+			for(int i=0; i<line*9; i++) {
+				std::cout << "_";
+			}
+			std::cout << "" << std::endl;
+			std::cout << "" << std::endl;
+
+			//For para mostrar todo o tabuleiro ao usuario
+			for (int i = 0; i < line; i++) {
+				for (int j = 0; j < coln; j++) {
+					std::cout << tabuleiroUser[i][j];
+				}
+				std::cout << "| " << i;
+				std::cout << "" << std::endl;
+				std::cout << std::endl;
+			}
+
+            //Menu para rejogar novamente
+			std::cout << "\nDeseja jogar novamente?\n";
+			std::cout << "0 - Nao.\n";
+			std::cout << "1 - Sim:\n";
+			std::cin >> retorno;
+			if(retorno < 0 && retorno > 1) {
+				std::cout << "Insira um numero valido!";
+			}
+			else if(retorno==1) {
+				retorno=0;
+				jogatina=1;
+				break;
+			}
+			else if(retorno==0) {
+				retorno=0;
+				menu=0;
+			}
+		}
+
+	}
+
+	return 0;
+}

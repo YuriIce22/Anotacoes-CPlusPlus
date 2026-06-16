@@ -1,0 +1,176 @@
+===================================
+
+#include <iostream>
+#include <cmath>
+#include <random>
+
+//using namespace std;
+
+
+int gen(){
+    std::random_device rd;
+    std::mt19937 gen_numb(rd());
+    std::uniform_int_distribution<> dis(1, 100);
+    return dis(gen_numb);
+}
+
+int main()
+{
+    
+    int size=10, prev, next, aux;
+    int num[size];
+
+for(aux=0; aux<size; aux++){
+    num[aux] = gen();    
+}    
+
+    std::cout << "Array original: \n";
+    for(aux=0; aux<size; aux++){
+        std::cout << num[aux] << "  ";
+    }
+
+    for(prev=0; prev<=size-2; prev++){
+        for(next=prev+1; next<=size-1; next++){
+            aux = num[prev];
+            
+            if(num[prev]>num[next]){
+                num[prev] = num[next];
+                num[next] = aux;
+            }
+        }
+    }
+    
+    std::cout << "\n\nArray organizado: \n";
+    for(aux=0; aux<size; aux++){
+        std::cout << num[aux] << "  ";
+    }
+
+    return 0;
+}
+
+
+============================================
+
+
+#include <iostream>
+#include <cmath>
+#include <random>
+
+//using namespace std;
+
+
+int gen(){
+    std::random_device rd;
+    std::mt19937 gen_numb(rd());
+    std::uniform_int_distribution<> dis(1, 100);
+    return dis(gen_numb);
+}
+
+int main()
+{
+    
+    int size=10, prev, next, aux;
+    int num[size];
+
+for(aux=0; aux<size; aux++){
+    num[aux] = gen();    
+}    
+
+    std::cout << "Array original: \n";
+    for(aux=0; aux<size; aux++){
+        std::cout << num[aux] << "  ";
+    }         }
+        }
+    }
+    
+    std::cout << "\n\nArray organizado: \n";
+    for(aux=0; aux<size; aux++){
+        std::cout << num[aux] << "  ";
+    }
+
+    return 0;
+}
+
+    for(prev=0; prev<=size-2; prev++){
+        for(next=prev+1; next<=size-1; next++){
+            aux = num[prev];
+            
+            if(num[prev]<num[next]){
+                num[prev] = num[next];
+                num[next] = aux;
+   
+
+
+=================================================
+
+
+#include <iostream>
+#include <cmath>
+#include <random>
+
+//using namespace std;
+
+
+int num_rand();
+void num_receber(int [], int);
+void num_org(int [], int);
+void num_exib(int [], int);
+
+int main()
+{
+    
+    int size=10, aux;
+    int num[size];
+
+    num_receber(num, size);
+    
+    std::cout << "Array desorganizado: ";
+    num_exib(num, size);
+    
+    num_org(num, size);
+    
+    std::cout << "\n\nArray organizado: ";
+    num_exib(num, size);
+    
+
+    return 0;
+}
+
+
+
+int num_rand(){
+    std::random_device rd;
+    std::mt19937 gen_numb(rd());
+    std::uniform_int_distribution <> dis(1, 100);
+    return dis(gen_numb);
+}
+
+void num_receber(int num[], int size){
+    int aux;
+    for(aux=0; aux<size; aux++){
+        num[aux] = num_rand();  
+    }   
+}
+
+void num_org(int num[], int size){
+    
+    int prev, next, aux;
+    
+        for(prev=0; prev<=size-2; prev++){
+        for(next=prev+1; next<=size-1; next++){
+            aux = num[prev];
+            
+            if(num[prev]<num[next]){
+                num[prev] = num[next];
+                num[next] = aux;
+            }
+        }
+    }
+}
+
+void num_exib(int num[], int size){
+    int aux;
+    for(aux=0; aux<size; aux++){
+        std::cout << num[aux] << "  ";
+    }
+}

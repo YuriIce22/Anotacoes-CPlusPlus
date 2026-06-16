@@ -1,0 +1,186 @@
+=======================================================
+
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+using namespace std;
+
+
+float hipo(float lad1, float lad2);
+
+int main()
+{
+    float lado1, lado2;
+    
+    cout << "Insira o primeiro lado do triangulo retangulo: ";
+    cin >> lado1;
+    cout << "Insira o segundo lado do triangulo retangulo: ";
+    cin >> lado2;
+    hipo(lado1, lado2);
+    cout << "A hipotenusa é: " << hipo(lado1, lado2);
+    
+
+    return 0;
+}
+
+
+float hipo(float lad1, float lad2){
+    
+    return sqrt((lad1 * lad1) + (lad2 * lad2));
+
+}
+
+
+=======================================================
+
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+using namespace std;
+
+
+float coin(float n1);
+
+
+int main()
+{
+
+	float n1;
+
+	cout << "Insira o número de lançamentos de uma moeda em um cara ou coroa: ";
+	cin >> n1;
+
+    coin(n1);
+
+
+}
+
+
+float coin(float n1){
+    
+    float cara=0, coroa=0;
+
+    unsigned seed = time(0);
+    srand(seed);
+
+    for(int i=0; i<n1; i++){
+        if(rand()%2==0){
+            coroa++;
+        }else{
+            cara++;
+        }
+    }
+    
+    cout << "O número de caras foi: " << cara << ". E o número de coroa foi: " << coroa << endl;
+    cout << "O % de cara foi: " << (cara/n1)*100 << "%. E a % de coroa foi: " << (coroa/n1)*100 << "%." << endl;
+    
+    
+    return 0;
+
+}
+
+
+=======================================================
+
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+using namespace std;
+
+
+void maior(float n1, float n2, float n3);
+void menor(float n1, float n2, float n3);
+
+
+int main()
+{
+
+	float n1, n2, n3;
+
+	cout << "Insira o primeiro número: ";
+	cin >> n1;
+	cout << "Insira o segundo número: ";
+	cin >> n2;
+	cout << "Insira o terceiro número: ";
+	cin >> n3;
+
+    maior(n1, n2, n3);
+    menor(n1, n2, n3);
+
+
+}
+
+
+void maior(float n1, float n2, float n3) {
+	float aux=-999999999999;
+
+
+	while((n1>aux)&&(n2>aux)&&(n3>aux)) {
+		if(n1>aux) {
+			aux=n1;
+		}
+		if(n2>aux) {
+			aux=n2;
+		}
+		if(n3>aux) {
+			aux=n3;
+		}
+
+		break;
+	}
+	
+	    cout << "O maior número é: " << aux << endl;
+
+}
+
+void menor (float n1, float n2, float n3) {
+	float aux=999999999;
+
+	while((n1<aux)&&(n2<aux)&&(n3<aux)) {
+		if(n1<aux) {
+			aux=n1;
+		}
+		if(n2<aux) {
+			aux=n2;
+		}
+		if(n3<aux) {
+			aux=n3;
+		}
+
+		break;
+	}
+
+    cout << "O menor: " << aux << endl;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

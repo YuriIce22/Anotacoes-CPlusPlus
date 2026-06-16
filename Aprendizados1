@@ -1,0 +1,322 @@
+==========================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int idade;
+    
+    idade = 18;
+    
+    cout << "minha idade é: "<< idade  <<endl;
+    return 0;
+}
+
+
+===========================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    char letra;
+    letra = 'A';
+    
+    cout << "A primeira letra do alfabeto é: " << letra <<endl;
+    return 0;
+}
+
+
+===========================================
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    cout << fixed << setprecision(0);
+    
+    double preco;
+    preco = 1699.99;
+    
+    cout << "O computador custa: R$ " << preco <<endl;
+    return 0;
+}
+
+
+
+===========================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    double preco;
+    preco = 1699.99;
+    
+    cout << "O computador custa: R$ " << preco <<endl;
+    return 0;
+}
+
+
+===========================================
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    bool verdade;
+    verdade = true;
+    
+    cout << "O valor  true em C++ é: " << verdade <<endl;
+    return 0;
+}
+
+
+===========================================
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+
+    cout << "Variável 'int' ocupa    : " << sizeof(int) << " byte(s)" << endl;
+    cout << "Variável 'char' ocupa   : " << sizeof(char) << " byte(s)" << endl;
+    cout << "Variável 'float' ocupa  : " << sizeof(float) << " byte(s)" << endl;
+    cout << "Variável 'double' ocupa : " << sizeof(double) << " byte(s)" << endl;
+    cout << "Variável 'bool' ocupa   : " << sizeof(bool) << " byte(s)" << endl;
+    return 0;
+}
+
+
+===========================================
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+
+    cout << "Variável 'short' ocupa            : " << sizeof(short) << " byte(s)" << endl;
+    cout << "Variável 'unsigned short' ocupa   : " << sizeof(unsigned short) << " byte(s)" << endl;
+    cout << "Variável 'unsigned int' ocupa     : " << sizeof(unsigned int) << " byte(s)" << endl;
+    cout << "Variável 'long' ocupa             : " << sizeof(long) << " byte(s)" << endl;
+    cout << "Variável 'unsigned long' ocupa    : " << sizeof(unsigned long) << " byte(s)" << endl;
+    return 0;
+}
+
+
+===========================================
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+
+    int valor1=15, valor2=10;
+
+    cout << 19.0 + 10.0 << endl;
+    cout << valor1 + valor2 << endl << endl;
+    
+    cout << 50.0 - 20.0 << endl;
+    cout << valor1 - valor2 << endl << endl;
+    
+    cout << 10.0 * 2.0 << endl;
+    cout << valor1 * valor2 << endl << endl;
+    
+    cout << 3.0 / 45.0 << endl;
+    cout << valor1 / valor2 << endl << endl;
+
+    cout << 1 % 24 << endl;
+    cout << valor1 % valor2 << endl << endl;
+     
+
+    return 0;
+}
+
+
+===========================================
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+
+    cout << 10 + 20 + 30 << endl;
+    cout << 21.0 / 12.0 << endl;
+    cout << 21 % 12 << endl;
+    return 0;
+}
+
+
+===========================================
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+
+    int valor1=10, valor2=20, valor3=30, media;
+    
+    cout << (valor1 + valor2 + valor3)/3 << endl;
+    cout << (10 + 20 + 30) / 3 << endl;
+    cout << 10 + 20 + 30/3 << endl;
+
+    return 0;
+}
+
+
+===========================================
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+
+    cout << 1 + 6 * 3 << endl << 1 + 6 / 2 << endl << endl;
+    cout << (1 + 6) * 3 << endl << (1.0 + 6.0) / 2 << endl;
+    return 0;
+}
+
+
+===========================================
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+
+    int idade;
+    
+    cout << "Digite sua idade: ";
+    cin >> idade;
+    cout <<"A idade informada foi: " << idade;
+
+    return 0;
+}
+
+
+===========================================
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+float valor1, valor2, soma;
+    
+    cout << "Digite o primeiro número: ";
+    cin >> valor1;
+    
+    cout <<"Digite o segundo número: ";
+    cin >> valor2;
+    
+    soma = valor1 + valor2;
+    cout << "A soma dos números " << valor1 << " e " << valor2 << " é: " << soma;
+
+    return 0;
+    
+    
+===========================================
+
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+
+    string nome;
+    
+    cout << "Digite seu nome: ";
+    getline (cin, nome);
+    cout << "Olá, " << nome << "! Tudo bem?";
+
+    return 0;
+}
+    
+    
+===========================================
+    
+    
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    string nomes;
+    float num1, num2, num3, num4, sum1, sum2, sum3;
+        
+    //Nome    
+    cout << "Digite seu nome: ";
+    getline (cin, nomes);
+    cout << "Seu nome é " << nomes << "!" << endl << endl;
+    
+    //Dobrar
+    cout << "Coloque um número para ser dobrado: ";
+    cin >> num1;
+    sum1 = num1 * 2;
+    cout << "O número é: " << num1 << ". Seu número dobrado é: " << sum1 << endl << endl;
+    
+    //Área Quadrado
+    cout << "Insira o tamanho de um lado de um quadrado para descobrir sua área: ";
+    cin >> num2;
+    sum2 = num2 * num2;
+    cout << "A lateral do quadrado é: " << num2 << ". A área do quadrado é: " << sum2 << endl << endl;
+    
+    //Área Triangulo
+    cout << "Insira o tamanho de dois lados de um triangulo (base -> aperte enter -> insira altura -> enter) para descobrir sua área: ";
+    cin >> num3 >> num4;
+    sum3 = (num3 * num4)/2;
+    cout << "Os dois lados do triangulo é: " << num3 << " e " << num4 << ". A área do triangulo é: " << sum3 << endl << endl;
+    
+
+    return 0;
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

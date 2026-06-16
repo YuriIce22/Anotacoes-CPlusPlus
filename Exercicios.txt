@@ -1,0 +1,512 @@
+//////////////////////////////////////////////
+Exercicio 1
+//////////////////////////////////////////////
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+
+    //Declarando variaveis
+    float chuvas[7];
+    float menor_chuva=0, maior_chuva=0, media_chuva=0;
+    
+    //Pegando os valores
+        std::cout << "Quantos milimetros choveu no Domingo?: " << std::endl;
+        std::cin >> chuvas[0];
+    for(int i=1; i<6; i++){
+        std::cout << "Quantos milimetros choveu na " << i+1 << "ª feira?" << std::endl;
+        std::cin >> chuvas[i];
+    }
+        std::cout << "Quantos milimetros choveu no Sabado?: " << std::endl;
+        std::cin >> chuvas[6];
+        
+        menor_chuva = chuvas[0];
+
+    //Comparação de qual choveu mais, qual choveu menos e a média
+    for(int i=0; i<7; i++){
+        
+        if(maior_chuva<chuvas[i]){
+            maior_chuva = chuvas[i];
+        }
+        
+        if(menor_chuva>chuvas[i]){
+            menor_chuva = chuvas[i];
+        }
+        
+    }
+
+    for(int i=0; i<7; i++){
+            media_chuva += chuvas[i];
+    }
+    
+    system("clear");
+    
+    std::cout << "O dia que mais choveu, teve uma chuva de " << maior_chuva << " milimetros (mm)." << std::endl;
+    std::cout << "O dia que menos choveu, teve uma chuva de " << menor_chuva << " milimetros (mm)." << std::endl;
+    std::cout << "A media das chuvas durante esses dias chegaram a " << media_chuva/7 << " milimetros(mm)." << std::endl;
+    
+    
+	return 0;
+}
+
+
+//////////////////////////////////////////////
+Exercicio 2
+//////////////////////////////////////////////
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+int main() {
+
+    //Declarando as variaveis
+	int megasena[6] = {};
+	int megasena_jogada[6] = {};
+	int jogada=0, numero_acertos=0, n_mega=0;
+	bool repetido=false;
+
+    //while para repetir todo o menu para que os numeros sejam validos
+	int menu=0;
+	while(menu < 6) {
+		system("clear");
+		//Interacao com o usuario
+		std::cout << "\n//////////////////////";
+		std::cout << "\n       MEGASENA       ";
+		std::cout << "\n//////////////////////";
+		std::cout << "\nInsira o " << menu+1 << " numero da MegaSena: ";
+		std::cin >> jogada;
+
+        //Para que o numero nao seja repetido e
+        //para que o numero seja maior que zero e menor que 61
+		for(int i=0; i<6; i++) {
+			if(jogada==megasena_jogada[i]) {
+				repetido=true;
+			}
+		}
+		if(repetido==false) {
+			if(jogada>0 && jogada<61) {
+				megasena_jogada[menu] = jogada;
+				menu++;
+			} else {
+				system("clear");
+				std::cout << "Insira outro numero! de 1 a 60 e sem repeticoes!";
+			}
+		} else if(repetido==true) {
+			system("clear");
+			std::cout << "Insira outro numero! de 1 a 60 e sem repeticoes!"  ;
+			repetido=false;
+		}
+	}
+    
+    //Gerando os numeros aleatorios
+    //E garantindo que eles nao se repitam
+	srand(time(0));
+
+	int num_rand=0;
+	while(num_rand < 6) {
+		n_mega = rand()%61;
+		for(int j=0; j<6; j++) {
+			if(n_mega==megasena[j]) {
+				repetido=true;
+			}
+		}
+		if(repetido==false) {
+			megasena[num_rand] = n_mega;
+			num_rand++;
+		} else if(repetido==true) {
+			repetido=false;
+		}
+	}
+	//Gerando os numeros aleatorios
+
+	//calculo de numero de acertos
+		for(int j=0; j<6; j++) {
+			for(int i=0; i<6; i++) {
+				if(megasena_jogada[i]==megasena[j]) {
+					numero_acertos++;
+				}
+			}
+		}
+
+    //limpeza
+	system("clear");
+
+    //Menu para a quantidade de acertos
+	if(numero_acertos==6) {
+		std::cout << "Parabens! Voce acertou todos os numeros e venceu a megasena!" << std::endl;
+		std::cout << "Quantidade de acertos: " << numero_acertos;
+	} else if(numero_acertos==5) {
+		std::cout << "Parabens! Voce acertou a quina da megasena!" << std::endl;
+		std::cout << "Quantidade de acertos: " << numero_acertos;
+	} else if(numero_acertos==4) {
+		std::cout << "Parabens! Voce acertou a quadra da megasena!" << std::endl;
+		std::cout << "Quantidade de acertos: " << numero_acertos;
+	} else if(numero_acertos<4) {
+		std::cout << "Nao foi dessa vez!" << std::endl;
+		std::cout << "Quantidade de acertos: " << numero_acertos;
+	}
+
+    //Jogadas do jogador e Megasena
+	std::cout << "\n\nSuas jogadas: " << std::endl;
+	for(int i=0; i<6; i++) {
+		std::cout << megasena_jogada[i] << " ";
+	}
+	std::cout << "\n\nMegaSena: " << std::endl;
+	for(int i=0; i<6; i++) {
+		std::cout << megasena[i] << " ";
+	}
+
+    //Fim
+	return 0;
+}
+
+
+//////////////////////////////////////////////
+Exercicio 3
+//////////////////////////////////////////////
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+const int SIZE=3;
+
+int comparacao(int placar_x, int placar_o);
+
+int main() {
+
+	//Variaveis declaradas
+	int simbolo_jogada=0, aux_X=2, aux_Y=0, resul_comparacao=0, tabuleiro_cheio=0;
+	int jogada_y=0, jogada_x=0, placar_x=0, placar_o=0;
+
+	//While pra repetir todo o jogo
+	int menu = 1;
+	while(menu!=0) {
+
+		system("clear");
+
+		//Matriz do tabuleiro e matriz do tabuleiro para o jogo da velha
+		std::string jogoDaVelha[SIZE][SIZE];
+
+		//Linha de cima do tabuleiro
+		for(int i=0; i<SIZE; i++) {
+			std::cout << "\t" << i;
+		}
+		std::cout << "   " << std::endl;
+		for(int i=0; i<SIZE*9; i++) {
+			std::cout << "_";
+		}
+		std::cout << "" << std::endl;
+		std::cout << "" << std::endl;
+
+		//For para preencher todo o tabuleiro com " -" e exibir
+		for (int i = 0; i < SIZE; i++) {
+			for (int j = 0; j < SIZE; j++) {
+				jogoDaVelha[i][j] = "\t-";
+				std::cout << jogoDaVelha[i][j];
+			}
+			std::cout << "| " << i;
+			std::cout << "" << std::endl;
+			std::cout << std::endl;
+		}
+
+		//While para a jogatina/gameplay
+		int jogatina = 1;
+		while (jogatina!=0) {
+
+			//While para garantir que as jogadas no tabuleiro sejam validas
+			int menu_jogadas_players = 1;
+			while(menu_jogadas_players!=0) {
+
+				std::cout << "Insira sua jogada!" << std::endl;
+				std::cout << "Insira X (Colunas): ";
+				std::cin >> jogada_x;
+				std::cout << "Insira Y (Linhas): ";
+				std::cin >> jogada_y;
+
+				if(jogada_x >= 0 && jogada_x < SIZE && jogada_y >=0 && jogada_y < SIZE) {
+					if(jogoDaVelha[jogada_y][jogada_x]== "\tX" ||jogoDaVelha[jogada_y][jogada_x]== "\tO") {
+						menu_jogadas_players = 1;
+					}
+					else if(jogoDaVelha[jogada_y][jogada_x]== "\t-") {
+						menu_jogadas_players = 0;
+					}
+				}
+
+				//Limpeza do console
+				system("clear");
+
+				std::cout << "Insira uma coordenada valida!\n";
+
+				//Linha de cima do tabuleiro
+				for(int i=0; i<SIZE; i++) {
+					std::cout << "\t" << i;
+				}
+				std::cout << "   " << std::endl;
+				for(int i=0; i<SIZE*9; i++) {
+					std::cout << "_";
+				}
+				std::cout << "" << std::endl;
+				std::cout << "" << std::endl;
+
+				for (int i = 0; i < SIZE; i++) {
+					for (int j = 0; j < SIZE; j++) {
+						std::cout << jogoDaVelha[i][j];
+					}
+					std::cout << "| " << i;
+					std::cout << std::endl;
+				}
+			}
+
+			system("clear");
+
+			//Preencher o jogo da velha com X ou O intercalados
+			if(jogoDaVelha[jogada_y][jogada_x] == "\t-") {
+				if(simbolo_jogada%2==0) {
+					jogoDaVelha[jogada_y][jogada_x] = "\tX";
+					simbolo_jogada++;
+				}
+				else if(simbolo_jogada%2==1) {
+					jogoDaVelha[jogada_y][jogada_x] = "\tO";
+					simbolo_jogada++;
+				}
+			}
+
+
+			//Placar
+			std::cout << "\nO jogador 1 ('X') tem " << placar_x << " pontos!" << std::endl;
+			std::cout << "O jogador 2 ('O') tem " << placar_o << " pontos!" << std::endl << std::endl;
+
+			aux_Y=0;
+			aux_X=2;
+
+			//Primeira comparacao em diagonal
+			for(int i=0; i<SIZE; i++) {
+				if(jogoDaVelha[aux_Y][aux_X]=="\tX") {
+					placar_x++;
+				}
+				if(jogoDaVelha[aux_Y][aux_X]=="\tO") {
+					placar_o++;
+				}
+				aux_Y++;
+				aux_X--;
+			}
+
+			resul_comparacao = comparacao(placar_x, placar_o);
+
+			if(resul_comparacao==1) {
+				std::cout << "O jogador 1 ('X') ganhou!" << std::endl;
+				break;
+			}
+			else if(resul_comparacao==2) {
+				std::cout << "O jogador 2 ('O') ganhou!" << std::endl;
+				break;
+			}
+			placar_x=0;
+			placar_o=0;
+			//Primeiro comparacao em diagonal
+
+
+			//Segundo comparacao em diagonal
+			for(int i=0; i<SIZE; i++) {
+				if(jogoDaVelha[i][i]=="\tX") {
+					placar_x++;
+				}
+				if(jogoDaVelha[i][i]=="\tO") {
+					placar_o++;
+				}
+			}
+
+			resul_comparacao = comparacao(placar_x, placar_o);
+
+			if(resul_comparacao==1) {
+				std::cout << "O jogador 1 ('X') ganhou!" << std::endl;
+				break;
+			}
+			else if(resul_comparacao==2) {
+				std::cout << "O jogador 2 ('O') ganhou!" << std::endl;
+				break;
+			}
+			placar_x=0;
+			placar_o=0;
+			//Segundo comparacao em diagonal
+
+			//Terceiro comparacao em coluna
+			for(int i=0; i<SIZE; i++) {
+				for(int j=0; j<SIZE; j++) {
+					if(jogoDaVelha[i][j]=="\tX") {
+						placar_x++;
+					}
+					else if(jogoDaVelha[i][j]=="\tO") {
+						placar_o++;
+					}
+				}
+				if(placar_x==3 || placar_o==3) {
+					break;
+				} else {
+					placar_x=0;
+					placar_o=0;
+				}
+
+			}
+
+			resul_comparacao = comparacao(placar_x, placar_o);
+
+			if(resul_comparacao==1) {
+				std::cout << "O jogador 1 ('X') ganhou!" << std::endl;
+				break;
+			}
+			else if(resul_comparacao==2) {
+				std::cout << "O jogador 2 ('O') ganhou!" << std::endl;
+				break;
+			}
+			placar_x=0;
+			placar_o=0;
+			//Terceiro comparacao em coluna
+
+			//Quarto comparacao em linha
+			for(int i=0; i<SIZE; i++) {
+				for(int j=0; j<SIZE; j++) {
+					if(jogoDaVelha[j][i]=="\tX") {
+						placar_x++;
+					}
+					else if(jogoDaVelha[j][i]=="\tO") {
+						placar_o++;
+					}
+				}
+				if(placar_x==3 || placar_o==3) {
+					break;
+				} else {
+					placar_x=0;
+					placar_o=0;
+				}
+			}
+
+			resul_comparacao = comparacao(placar_x, placar_o);
+
+			if(resul_comparacao==1) {
+				std::cout << "O jogador 1 ('X') ganhou!" << std::endl;
+				break;
+			}
+			else if(resul_comparacao==2) {
+				std::cout << "O jogador 2 ('O') ganhou!" << std::endl;
+				break;
+			}
+			placar_x=0;
+			placar_o=0;
+			//Quarto comparacao em linha
+			
+			//Quinta comparacao para caso de velha
+			for(int fim_y=0; fim_y<SIZE; fim_y++){
+			    for(int fim_x=0; fim_x<SIZE; fim_x++){
+			        if(jogoDaVelha[fim_y][fim_x]!="\t-"){
+			            tabuleiro_cheio++;
+			        }
+			    }
+			}
+			
+			if(tabuleiro_cheio==9){
+			    std::cout << "Empate! O jogo deu velha!" << std::endl << std::endl;
+			    break;
+			}else{
+			    tabuleiro_cheio=0;
+			}
+			//Quinta comparacao para caso de velha
+
+			//Linha de cima do tabuleiro
+			for(int i=0; i<SIZE; i++) {
+				std::cout << "\t" << i;
+			}
+			std::cout << "   " << std::endl;
+			for(int i=0; i<SIZE*9; i++) {
+				std::cout << "_";
+			}
+			std::cout << "" << std::endl;
+			std::cout << "" << std::endl;
+
+			//For para mostrar todo o tabuleiro ao usuario
+			for (int i = 0; i < SIZE; i++) {
+				for (int j = 0; j < SIZE; j++) {
+					std::cout << jogoDaVelha[i][j];
+				}
+				std::cout << "| " << i;
+				std::cout << "" << std::endl;
+				std::cout << std::endl;
+			}
+		}
+
+
+		//While para o menu de repetir o jogo
+		int retorno = 1;
+		while(retorno!=0) {
+
+			placar_x=0;
+			placar_o=0;
+
+			//Linha de cima do tabuleiro
+			for(int i=0; i<SIZE; i++) {
+				std::cout << "\t" << i;
+			}
+			std::cout << "   " << std::endl;
+			for(int i=0; i<SIZE*9; i++) {
+				std::cout << "_";
+			}
+			std::cout << "" << std::endl;
+			std::cout << "" << std::endl;
+
+			//For para mostrar todo o tabuleiro ao usuario
+			for (int i = 0; i < SIZE; i++) {
+				for (int j = 0; j < SIZE; j++) {
+					std::cout << jogoDaVelha[i][j];
+				}
+				std::cout << "| " << i;
+				std::cout << "" << std::endl;
+				std::cout << std::endl;
+			}
+
+			//Menu para rejogar novamente
+			std::cout << "\nDeseja jogar novamente?\n";
+			std::cout << "0 - Nao.\n";
+			std::cout << "1 - Sim:\n";
+			std::cin >> retorno;
+			if(retorno < 0 && retorno > 1) {
+				std::cout << "Insira um numero valido!";
+			}
+			else if(retorno==1) {
+				retorno=0;
+				jogatina=1;
+				break;
+			}
+			else if(retorno==0) {
+				retorno=0;
+				menu=0;
+			}
+		}
+
+	}
+
+	return 0;
+}
+
+//Funcao para comparar vitoria
+int comparacao(int placar_x, int placar_o) {
+
+	int retorno=0;
+	retorno=0;
+
+	if(placar_x==3) {
+		retorno=1;
+		return retorno;
+	}
+	else if(placar_o==3) {
+		retorno=2;
+		return retorno;
+	} else {
+		retorno=3;
+		return retorno;
+	}
+}
+

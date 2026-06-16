@@ -1,0 +1,221 @@
+==========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int num1, num2, resul, opcao;
+    int num3, num4;
+    
+    cout << "Insira um número inteiro: ";
+    cin >> num1;
+    cout << "Insira outro número inteiro: ";
+    cin >> num2;
+    
+    cout << "Digite uma operação: \n";
+    cout << "[1. Soma]\n";
+    cout << "[2. Subtração]\n";
+    cout << "[3. Multiplicação]\n";
+    cout << "[4. Divisão]\n";
+    cout << "[5. Resto de Divisão]\n";
+    cout << "Digite uma opção [Número de 1 a 5]: ";
+    cin >> opcao;
+
+    switch(opcao){
+        case 1:
+        resul = num1 + num2;
+        cout << "O resultado de " << num1 << " + " << num2 << " é " << resul;
+        break;
+        
+        case 2:
+        resul = num1 - num2;
+        cout << "O resultado de " << num1 << " - " << num2 << " é " << resul;
+        break;
+        
+        case 3:
+        resul = num1 * num2;
+        cout << "O resultado de " << num1 << " x " << num2 << " é " << resul;
+        break;
+        
+        case 4:
+        resul = num1 / num2;
+        cout << "O resultado de " << num1 << " / " << num2 << " é " << resul;
+        break;
+        
+        case 5:
+        resul = num3 % num4;
+        cout << "O resultado dos restos de " << num3 << " / " << num4 << " é " << resul;
+        break;
+    }
+
+    return 0;
+}
+
+
+==========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int opcao;
+    float mes;
+    bool resto;
+    
+    cout << "Insira um mês em numéro: \n";
+    cout << "1. Janeiro\n";
+    cout << "2. Fevereiro\n";
+    cout << "3. Março \n";
+    cout << "4. Abril\n";
+    cout << "5. Maio\n";
+    cout << "6. Junho\n";
+    cout << "7. Julho\n";
+    cout << "8. Agosto \n";
+    cout << "9. Setembro\n";
+    cout << "10. Outubro\n";
+    cout << "11. Novembro\n";
+    cout << "12. Dezembro\n";
+    cout << "Digite uma opção [Número de 1 a 12]: ";
+    cin >> opcao;
+    
+    mes = opcao % 2;
+
+    if(mes==0){
+        resto = false;
+    } else {
+        resto = true;
+    }
+
+    switch(resto){
+    
+        case false:
+            if(opcao == 2){
+                cout << "Esse mês tem 28 dias.";
+            } 
+            else {
+                
+                if(opcao > 7){
+                    cout << "Esse mês tem 31 dias.";
+                }
+                else{
+                    cout << "Esse mês tem 30 dias.";
+                }
+                
+                
+            }
+                break;
+        default:
+            if(opcao < 8){
+                cout << "Esse mês tem 31 dias.";
+            } else {
+                cout << "Esse mês tem 30 dias.";
+            }
+    }
+    
+    return 0;
+}
+
+
+==========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int tri1, tri2, tri3;
+
+    
+    cout << "Insira o primeiro lado de um triangulo: ";
+    cin >> tri1;
+    cout << "Insira o segundo lado de um triangulo: ";
+    cin >> tri2;
+    cout << "Insira o terceiro lado de um triangulo: ";
+    cin >> tri3;
+    
+    if(tri1 == tri2 && tri2 == tri3){
+        cout << "O triangulo tem 3 lados iguais. Ele é Equilátero." << endl;
+    }
+    
+    else if((tri1 == tri2 && tri1 != tri3) || (tri1 == tri3 && tri3 != tri2) || (tri2 == tri3 && tri1 != tri2)) {
+        cout << "O triangulo tem 2 lados iguais. Ele é Isósceles.";
+    }
+    
+    else{
+        cout << "O triangulo tem 3 lados diferentes. Ele é Escaleno.";
+    }
+
+    return 0;
+}
+
+
+==========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    float nota1, nota2;
+    int opcao;
+
+    do{
+    cout << "Insira a primeira nota: \n";
+    cin >> nota1;
+    cout << "Insira a segunda nota: \n";
+    cin >> nota2;
+    
+    cout << "A média é: " << (nota1+nota2)/2 << endl;
+    
+    cout << "Gostaria de calcular uma nova média? \n";
+    cout << "1. Sim. \n";
+    cout << "2. Não. \n";
+    cin >> opcao;
+    system("clear");
+    }
+    
+    while(opcao==1);
+
+    return 0;
+}
+
+
+==========================================================
+
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int aux, mater;
+    float notas, soma=0;
+
+    cout << "Digite a quantidade de matérias: \n";
+    cin >> mater;
+
+
+    for(aux=1; aux <= mater; aux++){
+    cout << "Nota " << aux << ": ";
+    cin >> notas;
+    soma += notas;
+    }
+    
+    cout << "A média das notas é: " << soma/mater << endl;
+
+    return 0;
+}
+
+
+

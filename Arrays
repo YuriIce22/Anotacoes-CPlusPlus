@@ -1,0 +1,103 @@
+============================================
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+using namespace std;
+
+
+int main()
+{
+    const int SIZE = 1000000;
+    int num[SIZE], count, highest, lowest;
+    
+    unsigned seed = time(0);
+    srand(seed);
+    //Ou srand(time(0));
+    
+    for(count=0; count<SIZE; count++){
+        num[count] = rand();
+    }
+    
+    highest = num[0];
+    lowest = num[0];  
+    
+    for(count=1; count<SIZE; count++){
+        
+        if(num[count]>highest){
+            highest = num[count];    
+        }
+        
+        if(num[count]<lowest){
+            lowest = num[count];
+        }
+    }
+    
+    cout << "O maior numero encontrado foi: " << highest << endl;
+    cout << "O menor numero encontrado foi: " << lowest << endl;
+    
+
+
+	return 0;
+}
+
+============================================
+
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+using namespace std;
+
+
+int main()
+{
+
+    const int ARRAY_SIZE = 6;
+    const float TAXA_IMPOSTO = 0.30;
+    float salario_func[ARRAY_SIZE];
+    int cont;
+    
+    for(cont=0; cont<ARRAY_SIZE; cont++){
+        cout << "Digite o salario do " << cont+1 << "º funcionario: ";
+        cin >> salario_func[cont];
+    }
+    
+    cout << "\nImposto a pagar: \n";
+    
+    for(cont=0; cont<ARRAY_SIZE; cont++){
+    cout << "O " << cont+1 << "º funcionario recebe R$" << salario_func[cont] << ", devera pagar: R$" << salario_func[cont]*TAXA_IMPOSTO << " de imposto." <<endl;
+    }
+
+	return 0;
+}
+
+
+============================================
+
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+using namespace std;
+
+
+int main()
+{
+
+int notas[5], controle, quantidade=0, media=0;
+
+    for(controle=0; controle<5; controle++){
+        cout << "Insira a " << quantidade+1 << "ª nota: ";
+        cin >> notas[controle];
+        quantidade++;
+        media += notas[controle];
+}
+
+    cout << "\n A média das notas são: " << media/quantidade;
+
+	return 0;
+}
+
